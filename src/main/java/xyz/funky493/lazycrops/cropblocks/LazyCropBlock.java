@@ -13,11 +13,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 public class LazyCropBlock extends CropBlock {
-    public record CropLevel() {
-        public static final int LAZY = 0;
-        public static final int LAZIER = 1;
-        public static final int LAZIEST = 2;
-    }
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D),

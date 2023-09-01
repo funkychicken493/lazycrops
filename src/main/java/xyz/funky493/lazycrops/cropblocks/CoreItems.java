@@ -11,16 +11,12 @@ public class CoreItems {
     public static final Item LAZIEST_SEEDS = new Item(new Item.Settings());
 
     public static Item getItemFromCropLevel(int cropLevel) {
-        switch (cropLevel) {
-            case 0:
-                return LAZY_SEEDS;
-            case 1:
-                return LAZIER_SEEDS;
-            case 2:
-                return LAZIEST_SEEDS;
-            default:
-                return null;
-        }
+        return switch (cropLevel) {
+            case 0 -> LAZY_SEEDS;
+            case 1 -> LAZIER_SEEDS;
+            case 2 -> LAZIEST_SEEDS;
+            default -> null;
+        };
     }
 
     public static final Map<Item, String> ITEMS = new HashMap<>() {{

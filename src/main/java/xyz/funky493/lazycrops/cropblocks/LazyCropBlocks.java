@@ -29,12 +29,4 @@ public class LazyCropBlocks {
             new LazyEntityCropBlock("chicken_crop", "chicken_seeds", 0, EntityType.CHICKEN, Items.CHICKEN)
     };
 
-    public static LazyCropBlock getBlock(String id) {
-        for (LazyCropBlock cropBlock : CROP_BLOCKS) {
-            if (cropBlock.cropId.equals(id)) {
-                return cropBlock;
-            }
-        }
-        throw new IllegalArgumentException("No crop block with ID " + id + " found.");
-    }
 }

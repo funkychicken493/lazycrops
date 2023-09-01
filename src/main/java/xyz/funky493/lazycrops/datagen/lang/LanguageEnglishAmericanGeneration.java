@@ -41,9 +41,9 @@ public class LanguageEnglishAmericanGeneration extends FabricLanguageProvider {
 
         //#region Core items
 
-        translationBuilder.add("item.lazycrops.lazy_seeds", "Lazy Seeds");
-        translationBuilder.add("item.lazycrops.lazier_seeds", "Lazier Seeds");
-        translationBuilder.add("item.lazycrops.laziest_seeds", "Laziest Seeds");
+        translationBuilder.add("item." + MODID + ".lazy_seeds", "Lazy Seeds");
+        translationBuilder.add("item." + MODID + ".lazier_seeds", "Lazier Seeds");
+        translationBuilder.add("item." + MODID + ".laziest_seeds", "Laziest Seeds");
 
         //#endregion
 
