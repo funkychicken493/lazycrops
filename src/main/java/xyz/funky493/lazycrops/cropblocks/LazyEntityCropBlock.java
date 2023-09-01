@@ -29,7 +29,7 @@ public class LazyEntityCropBlock extends LazyCropBlock {
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         super.onStateReplaced(state, world, pos, newState, moved);
-        if (!(newState.getBlock() instanceof LazyCropBlock)) {
+        if (!(newState.getBlock() instanceof LazyCropBlock) || (newState.getBlock() instanceof LazyEntityCropBlock && newState.get(this.getAgeProperty()) == 1)) {
             summonEntity((ServerWorld) world, pos, state);
         }
     }
