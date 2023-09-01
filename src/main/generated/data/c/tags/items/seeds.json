@@ -23,6 +23,8 @@
     "lazycrops:rotten_flesh_seeds",
     "lazycrops:cake_seeds",
     "lazycrops:wheat_seeds_seeds",
-    "lazycrops:cow_seeds"
+    "lazycrops:cow_seeds",
+    "lazycrops:pig_seeds",
+    "lazycrops:chicken_seeds"
   ]
 }

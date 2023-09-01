@@ -24,7 +24,9 @@ public class LazyCropBlocks {
             new LazyItemCropBlock("rotten_flesh_crop", "rotten_flesh_seeds", Items.ROTTEN_FLESH, 0),
             new LazyItemCropBlock("cake_crop", "cake_seeds", Items.CAKE, 2),
             new LazyItemCropBlock("wheat_seeds_crop", "wheat_seeds_seeds", Items.WHEAT_SEEDS, 0),
-            new LazyEntityCropBlock("cow_crop", "cow_seeds", 0, EntityType.COW, Items.BEEF)
+            new LazyEntityCropBlock("cow_crop", "cow_seeds", 0, EntityType.COW, Items.BEEF),
+            new LazyEntityCropBlock("pig_crop", "pig_seeds", 0, EntityType.PIG, Items.PORKCHOP),
+            new LazyEntityCropBlock("chicken_crop", "chicken_seeds", 0, EntityType.CHICKEN, Items.CHICKEN)
     };
 
     public static LazyCropBlock getBlock(String id) {
