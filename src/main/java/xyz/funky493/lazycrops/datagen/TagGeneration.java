@@ -10,7 +10,6 @@ import net.minecraft.util.Identifier;
 import xyz.funky493.lazycrops.cropblocks.CoreItems;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
-import xyz.funky493.lazycrops.cropblocks.LazyItemCropBlock;
 
 import java.util.concurrent.CompletableFuture;
 

@@ -1,8 +1,6 @@
 package xyz.funky493.lazycrops.cropblocks;
 
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 
 import java.util.HashMap;
 import java.util.Map;

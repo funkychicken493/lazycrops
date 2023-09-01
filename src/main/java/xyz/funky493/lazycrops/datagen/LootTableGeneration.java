@@ -7,8 +7,8 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.predicate.StatePredicate;
 import xyz.funky493.lazycrops.LazyCrops;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
-import xyz.funky493.lazycrops.cropblocks.LazyItemCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
+import xyz.funky493.lazycrops.cropblocks.LazyItemCropBlock;
 
 public class LootTableGeneration extends FabricBlockLootTableProvider {
 

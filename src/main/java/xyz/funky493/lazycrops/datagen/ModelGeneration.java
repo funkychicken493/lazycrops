@@ -8,7 +8,6 @@ import net.minecraft.data.client.Models;
 import xyz.funky493.lazycrops.LazyCrops;
 import xyz.funky493.lazycrops.cropblocks.CoreItems;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
-import xyz.funky493.lazycrops.cropblocks.LazyItemCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
 
 public class ModelGeneration extends FabricModelProvider {

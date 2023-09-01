@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import xyz.funky493.lazycrops.LazyCrops;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
-import xyz.funky493.lazycrops.cropblocks.LazyItemCropBlock;
 
 import java.nio.file.Path;
 
