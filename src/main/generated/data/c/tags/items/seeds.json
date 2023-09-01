@@ -25,6 +25,7 @@
     "lazycrops:wheat_seeds_seeds",
     "lazycrops:cow_seeds",
     "lazycrops:pig_seeds",
-    "lazycrops:chicken_seeds"
+    "lazycrops:chicken_seeds",
+    "lazycrops:experience_seeds"
   ]
 }

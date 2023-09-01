@@ -1,6 +1,9 @@
 package xyz.funky493.lazycrops.cropblocks;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.item.Items;
 
 public class LazyCropBlocks {
@@ -26,7 +29,8 @@ public class LazyCropBlocks {
             new LazyItemCropBlock("wheat_seeds_crop", "wheat_seeds_seeds", Items.WHEAT_SEEDS, 0),
             new LazyEntityCropBlock("cow_crop", "cow_seeds", 0, EntityType.COW, Items.BEEF),
             new LazyEntityCropBlock("pig_crop", "pig_seeds", 0, EntityType.PIG, Items.PORKCHOP),
-            new LazyEntityCropBlock("chicken_crop", "chicken_seeds", 0, EntityType.CHICKEN, Items.CHICKEN)
+            new LazyEntityCropBlock("chicken_crop", "chicken_seeds", 0, EntityType.CHICKEN, Items.CHICKEN),
+            new LazyExperienceCropBlock("experience_crop", "experience_seeds", 2)
     };
 
 }
