@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "values": [
+    "lazycrops:lazy_seeds",
+    "lazycrops:lazier_seeds",
+    "lazycrops:laziest_seeds",
+    "lazycrops:dirt_seeds",
+    "lazycrops:sand_seeds",
+    "lazycrops:gravel_seeds",
+    "lazycrops:cobblestone_seeds",
+    "lazycrops:oak_log_seeds",
+    "lazycrops:spruce_log_seeds",
+    "lazycrops:birch_log_seeds",
+    "lazycrops:jungle_log_seeds",
+    "lazycrops:acacia_log_seeds",
+    "lazycrops:dark_oak_log_seeds",
+    "lazycrops:mangrove_log_seeds",
+    "lazycrops:cherry_log_seeds",
+    "lazycrops:obsidian_seeds",
+    "lazycrops:diamond_seeds",
+    "lazycrops:egg_seeds",
+    "lazycrops:honeycomb_seeds",
+    "lazycrops:rotten_flesh_seeds",
+    "lazycrops:cake_seeds",
+    "lazycrops:wheat_seeds_seeds",
+    "lazycrops:cow_seeds"
+  ]
+}

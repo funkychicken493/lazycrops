@@ -1,33 +1,31 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "lazycrops",
 	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Lazy Crops",
+	"description": "Oh boy, I sure do hate working for my resources!",
 	"authors": [
-		"Me!"
+		"funkychicken493"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/funkychicken493/lazycrops"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/modid/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"com.example.ExampleMod"
+		"fabric-datagen": [
+			"xyz.funky493.lazycrops.datagen.DataGeneration"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"xyz.funky493.lazycrops.LazyCropsClient"
+		],
+		"main": [
+          "xyz.funky493.lazycrops.LazyCrops"
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
-		{
-			"config": "modid.client.mixins.json",
-			"environment": "client"
-		}
+
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",
@@ -36,6 +34,5 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
 	}
 }
