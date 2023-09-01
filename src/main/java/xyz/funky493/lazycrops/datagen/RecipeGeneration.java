@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.recipe.book.RecipeCategory;
 import xyz.funky493.lazycrops.cropblocks.*;
@@ -38,13 +39,22 @@ public class RecipeGeneration extends FabricRecipeProvider {
                 .offerTo(exporter);
     }
 
+    private void inputOutput(Consumer<RecipeJsonProvider> exporter, Item input, Item output) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, output)
+                .input(input)
+                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))
+                .offerTo(exporter);
+    }
+
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         for (LazyCropBlock cropBlock : LazyCropBlocks.CROP_BLOCKS) {
             if (cropBlock instanceof LazyItemCropBlock) {
                 donut(exporter, CoreItems.getItemFromCropLevel(cropBlock.getLevel()), ((LazyItemCropBlock) cropBlock).product, cropBlock.seedsItem);
+                inputOutput(exporter, cropBlock.seedsItem, ((LazyItemCropBlock) cropBlock).product);
             } else if (cropBlock instanceof LazyEntityCropBlock) {
                 donut(exporter, CoreItems.getItemFromCropLevel(cropBlock.getLevel()), ((LazyEntityCropBlock) cropBlock).craftItem, cropBlock.seedsItem);
+                inputOutput(exporter, cropBlock.seedsItem, ((LazyEntityCropBlock) cropBlock).craftItem);
             }
         }
         threeByThree(exporter, CoreItems.LAZY_SEEDS, CoreItems.LAZIER_SEEDS);
