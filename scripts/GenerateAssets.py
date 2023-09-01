@@ -32,23 +32,6 @@ def tint(path: str, RGB: tuple):
     image.putdata(output)
     image.save(path)
 
-def average_color(path: str):
-    """Average the color of an image.
-
-    Args:
-        image (str): The path of the image to average the color of.
-    """
-    r = 0
-    g = 0
-    b = 0
-    image = Image.open(path).convert('RGBA')
-    for pixel in image.getdata():
-        r += pixel[0]
-        g += pixel[1]
-        b += pixel[2]
-    pixel_count = len(image.getdata())
-    return ((r/pixel_count), (g/pixel_count), (b/pixel_count))
-
 def invert(path: str):
     """Invert the colors of an image.
 
@@ -69,17 +52,18 @@ for mat in os.listdir("scripts/assets/materials/"):
     if mat.endswith(".png"):
         path = "scripts/assets/materials/" + mat
         for stage in os.listdir("scripts/assets/crops/wheat/"):
-            material_path = "scripts/assets/crops/wheat/" + stage
-            crop = Image.open(path)
-            crop.save(path)
-            material = Image.open(material_path).convert('RGBA')
-            material_path = "scripts/assets/temp/wheat/" + stage
-            material.save(material_path)
-            material = Image.open(material_path).convert('RGBA')
-            mask = Image.open(material_path).convert('LA')
-            invert(material_path)
-            Image.composite(crop.convert('RGB'), material.convert("RGB"), mask).save(f"src/main/resources/assets/lazycrops/textures/block/" + mat.split(".")[0] + "_crop_" + stage.split("_")[1].split(".")[0] + ".png")
+            stage_path = "scripts/assets/crops/wheat/" + stage
+            material = Image.open(path)
+            material.save(path)
+            stage_img = Image.open(stage_path).convert('RGBA')
+            stage_path = "scripts/assets/temp/wheat/" + stage
+            stage_img.save(stage_path)
+            stage_img = Image.open(stage_path).convert('RGBA')
+            mask = Image.open(stage_path).convert('LA')
+            invert(stage_path)
+            Image.composite(material.convert('RGB'), stage_img.convert("RGB"), mask).save(f"src/main/resources/assets/lazycrops/textures/block/" + mat.split(".")[0] + "_crop_" + stage.split("_")[1].split(".")[0] + ".png")
 
+# Basically, we just remove the pure white pixels from the textures and replace them with transparent pixels.
 for texture in os.listdir("src/main/resources/assets/lazycrops/textures/block/"):
     if texture.endswith(".png"):
         replaced = []
@@ -112,15 +96,3 @@ for mat in os.listdir("scripts/assets/materials/"):
         finish = Image.open("src/main/resources/assets/lazycrops/textures/item/" + mat.split(".")[0] + "_seeds.png").convert("RGBA")
         finish.putdata(replaced)
         finish.save("src/main/resources/assets/lazycrops/textures/item/" + mat.split(".")[0] + "_seeds.png")
-        
-
-
-# print(average_color("scripts/assets/dirt.png"))
-# dirt_crop = Image.open("scripts/assets/wheat_stage7.png").crop((0, 0, 16, 16))
-# dirt_crop.save("scripts/assets/dirt_crop.png")
-# grayscalify("scripts/assets/dirt_crop.png")
-# wheat_mask = Image.open("scripts/assets/wheat_stage7.png").convert('LA')
-# wheat_mask.save("scripts/assets/wheat_mask.png")
-# invert("scripts/assets/wheat_mask.png")
-# wheat_mask = Image.open("scripts/assets/wheat_mask.png")
-# Image.composite(Image.open("scripts/assets/dirt_crop.png").convert('RGBA'), Image.open("scripts/assets/dirt.png").convert('RGBA'), wheat_mask.convert('LA')).save("scripts/assets/dirt_crop.png")
