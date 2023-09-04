@@ -11,6 +11,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 
 public class LazyCropBlock extends CropBlock {
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{
@@ -49,6 +50,15 @@ public class LazyCropBlock extends CropBlock {
     }
     public int getLevel() {
         return level;
+    }
+
+    @Override
+    public void applyGrowth(World world, BlockPos pos, BlockState state) {
+
+    }
+
+    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
+        return false;
     }
 
 }

@@ -1,7 +1,6 @@
 package xyz.funky493.lazycrops.cropblocks;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.Item;
@@ -20,11 +19,10 @@ public class LazyEntityCropBlock extends LazyCropBlock {
         this.craftItem = craftItem;
     }
 
-    public Entity summonEntity(ServerWorld world, BlockPos pos, BlockState state) {
+    public void summonEntity(ServerWorld world, BlockPos pos, BlockState state) {
         if (!world.isClient() && state.get(this.getAgeProperty()) == 7) {
-            return product.spawn(world, pos, SpawnReason.CONVERSION);
+            product.spawn(world, pos, SpawnReason.CONVERSION);
         }
-        return null;
     }
 
     @SuppressWarnings("deprecation")
