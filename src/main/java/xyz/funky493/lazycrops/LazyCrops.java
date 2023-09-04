@@ -1,6 +1,8 @@
 package xyz.funky493.lazycrops;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
@@ -16,6 +18,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import xyz.funky493.lazycrops.cropblocks.CoreItems;
@@ -27,6 +30,9 @@ public class LazyCrops implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
 	public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MODID, "main_group"));
+
+	public static final GameRules.Key<GameRules.BooleanRule> CAN_FERTILIZE_LAZYCROPS =
+			GameRuleRegistry.register("canFertilizeLazyCrops", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
 
 	@Override
 	public void onInitialize() {

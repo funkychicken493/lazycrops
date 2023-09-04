@@ -27,8 +27,9 @@
   "block.lazycrops.rotten_flesh_crop": "Rotten Flesh Crop",
   "block.lazycrops.sand_crop": "Sand Crop",
   "block.lazycrops.spruce_log_crop": "Spruce Log Crop",
-  "block.lazycrops.tnt_crop": "Tnt Crop",
+  "block.lazycrops.tnt_crop": "TNT Crop",
   "block.lazycrops.wheat_seeds_crop": "Wheat Seeds Crop",
+  "gamerule.canFertilizeLazyCrops": "Can lazy crops be fertilized",
   "item.lazycrops.acacia_log_seeds": "Acacia Log Seeds",
   "item.lazycrops.birch_log_seeds": "Birch Log Seeds",
   "item.lazycrops.cake_seeds": "Cake Seeds",
@@ -54,7 +55,7 @@
   "item.lazycrops.rotten_flesh_seeds": "Rotten Flesh Seeds",
   "item.lazycrops.sand_seeds": "Sand Seeds",
   "item.lazycrops.spruce_log_seeds": "Spruce Log Seeds",
-  "item.lazycrops.tnt_seeds": "Tnt Seeds",
+  "item.lazycrops.tnt_seeds": "TNT Seeds",
   "item.lazycrops.wheat_seeds_seeds": "Wheat Seeds Seeds",
   "itemGroup.lazycrops.main_group": "Lazy Crops"
 }

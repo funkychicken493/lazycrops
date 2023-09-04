@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import xyz.funky493.lazycrops.LazyCrops;
 
 public class LazyCropBlock extends CropBlock {
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{
@@ -54,10 +55,9 @@ public class LazyCropBlock extends CropBlock {
 
     @Override
     public void applyGrowth(World world, BlockPos pos, BlockState state) {
-
-    }
-
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return false;
+        if (!world.getGameRules().getBoolean(LazyCrops.CAN_FERTILIZE_LAZYCROPS)) {
+            return;
+        }
+        super.applyGrowth(world, pos, state);
     }
 }
