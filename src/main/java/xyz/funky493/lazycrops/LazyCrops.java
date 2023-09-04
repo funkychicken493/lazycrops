@@ -68,7 +68,10 @@ public class LazyCrops implements ModInitializer {
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
 			if (id.getNamespace().equals("minecraft") && (id.getPath().contains("desert_pyramid") || id.getPath().contains("jungle_pyramid"))) {
 				LootPool.Builder pool = new LootPool.Builder()
-						.with(ItemEntry.builder(CoreItems.LAZY_SEEDS)).conditionally(RandomChanceLootCondition.builder(0.1f));
+						.with(ItemEntry.builder(CoreItems.LAZY_SEEDS)).conditionally(RandomChanceLootCondition.builder(0.3f))
+						.with(ItemEntry.builder(CoreItems.LAZIER_SEEDS)).conditionally(RandomChanceLootCondition.builder(0.05f))
+						.with(ItemEntry.builder(CoreItems.LAZIER_SEEDS)).conditionally(RandomChanceLootCondition.builder(0.01f));
+
 				supplier.pool(pool);
 			}
 		});

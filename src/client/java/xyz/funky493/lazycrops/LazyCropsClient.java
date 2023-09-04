@@ -4,7 +4,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
-import xyz.funky493.lazycrops.cropblocks.LazyItemCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
 
 public class LazyCropsClient implements ClientModInitializer {

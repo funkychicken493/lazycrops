@@ -10,10 +10,10 @@ import net.minecraft.world.World;
 
 public class LazyEntityCropBlock extends LazyCropBlock {
 
-    public EntityType product;
+    public EntityType<?> product;
     public Item craftItem;
 
-    public LazyEntityCropBlock(String cropId, String seedsId, int level, EntityType product, Item craftItem) {
+    public LazyEntityCropBlock(String cropId, String seedsId, int level, EntityType<?> product, Item craftItem) {
         super(cropId, seedsId, level);
         this.product = product;
         this.craftItem = craftItem;

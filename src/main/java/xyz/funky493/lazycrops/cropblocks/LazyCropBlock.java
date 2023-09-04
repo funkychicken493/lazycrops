@@ -60,5 +60,4 @@ public class LazyCropBlock extends CropBlock {
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
         return false;
     }
-
 }
