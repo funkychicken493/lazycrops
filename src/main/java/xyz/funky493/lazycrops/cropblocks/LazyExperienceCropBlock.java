@@ -6,12 +6,11 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class LazyExperienceCropBlock extends LazyItemCropBlock {
+public class LazyExperienceCropBlock extends LazySpecialCropBlock {
     public LazyExperienceCropBlock(String cropId, String seedsId, int level) {
-        super(cropId, seedsId, Items.EXPERIENCE_BOTTLE, level, true);
+        super(cropId, seedsId, Items.EXPERIENCE_BOTTLE, level);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         super.onStateReplaced(state, world, pos, newState, moved);
