@@ -2,7 +2,15 @@ from tkinter import Image
 
 from PIL import Image
 
+import yaml
+
 import os
+
+with open("scripts/config.yml", "r") as stream:
+    try:
+        config = yaml.safe_load(stream)
+    except yaml.YAMLError as exc:
+        print(exc)
 
 def invert(path: str):
     image = Image.open(path).convert('RGBA')

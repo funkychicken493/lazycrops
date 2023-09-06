@@ -125,3 +125,20 @@ task runAssetgenClient(type:Exec) {
 
 	commandLine 'python3', 'scripts/GenerateAssets.py'
 }
+
+task addPythonDependencies(type:Exec) {
+	workingDir '../lazycrops'
+
+	commandLine 'pip3', 'install', '-r', 'scripts/requirements.txt'
+}
+
+task upgradePip3(type:Exec) {
+	workingDir '../lazycrops'
+
+	commandLine 'pip3', 'install', '--upgrade', 'pip'
+}
+
+runAssetgenClient.dependsOn(addPythonDependencies)
+runAssetgenClient.dependsOn(upgradePip3)
+
+runDatagenClient.dependsOn(runAssetgenClient)
