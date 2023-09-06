@@ -44,3 +44,4 @@ replay_*.log
 /scripts/assets/temp
 /logs/
 .cache
+local.properties

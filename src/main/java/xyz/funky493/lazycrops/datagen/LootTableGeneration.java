@@ -18,7 +18,7 @@ public class LootTableGeneration extends FabricBlockLootTableProvider {
     public void generate() {
         LazyCrops.LOGGER.info("Generating loot tables...");
         for (LazyCropBlock crop : LazyCropBlocks.CROP_BLOCKS) {
-            if (crop instanceof LazyExperienceCropBlock || crop instanceof LazyTntCropBlock) {
+            if (crop instanceof LazyItemCropBlock && ((LazyItemCropBlock) crop).noDrop) {
                 addDrop(crop, cropDrops(crop, Items.AIR, crop.seedsItem, BlockStatePropertyLootCondition.builder(crop).properties(StatePredicate.Builder.create().exactMatch(crop.getAgeProperty(), 7))));
             } else if (crop instanceof LazyItemCropBlock) {
                 addDrop(crop, cropDrops(crop, ((LazyItemCropBlock) crop).product, crop.seedsItem, BlockStatePropertyLootCondition.builder(crop).properties(StatePredicate.Builder.create().exactMatch(crop.getAgeProperty(), 7))));

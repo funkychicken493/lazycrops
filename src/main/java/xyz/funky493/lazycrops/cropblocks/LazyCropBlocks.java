@@ -29,6 +29,12 @@ public class LazyCropBlocks {
             new LazyEntityCropBlock("chicken_crop", "chicken_seeds", 0, EntityType.CHICKEN, Items.CHICKEN),
             new LazyExperienceCropBlock("experience_crop", "experience_seeds", 2),
             new LazyTntCropBlock("tnt_crop", "tnt_seeds", 0),
+
+            //#region Metals
+            new LazyItemCropBlock("iron_crop", "iron_seeds", Items.RAW_IRON, 1),
+            new LazyItemCropBlock("gold_crop", "gold_seeds", Items.RAW_GOLD, 1),
+            new LazyItemCropBlock("copper_crop", "copper_seeds", Items.RAW_COPPER, 1)
+            //#endregion
     };
 
 }

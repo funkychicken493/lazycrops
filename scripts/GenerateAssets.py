@@ -1,43 +1,18 @@
 from tkinter import Image
-from math import floor as fl
 
 from PIL import Image
 
+import yaml
+
 import os
 
-def grayscalify(path: str):
-    """Make an image grayscale.
-
-    Args:
-        path (str): Path of the file to grayscale.
-    """
-    Image.open(path).convert('LA').save(path)
-    
-def tint(path: str, RGB: tuple):
-    """Tint an image a color with RGB values. Floors RGB values to integers.
-
-    Args:
-        path (str): Path of the file to tint.
-        RGB (tuple): RGB values to tint the image with.
-    """
-    image = Image.open(path).convert('RGBA')
-    output = []
-    for pix in image.getdata():
-        # If the alpha value is 0, then the pixel is transparent, so we don't want to change it.
-        if pix[3] in list(range(1, 256)):
-            output.append((pix[0] + fl(RGB[0]), pix[1] +
-                          fl(RGB[1]), pix[2] + fl(RGB[2])))
-        else:
-            output.append(pix)
-    image.putdata(output)
-    image.save(path)
+with open("scripts/config.yml", "r") as stream:
+    try:
+        config = yaml.safe_load(stream)
+    except yaml.YAMLError as exc:
+        print(exc)
 
 def invert(path: str):
-    """Invert the colors of an image.
-
-    Args:
-        path (str): The path of the image to invert.
-    """
     image = Image.open(path).convert('RGBA')
     output = []
     for pix in image.getdata():

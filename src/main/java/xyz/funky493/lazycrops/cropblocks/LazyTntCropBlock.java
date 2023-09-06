@@ -9,14 +9,11 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class LazyTntCropBlock extends LazyItemCropBlock {
-
-
+public class LazyTntCropBlock extends LazySpecialCropBlock {
     public LazyTntCropBlock(String cropId, String seedsId, int level) {
         super(cropId, seedsId, Items.TNT, level);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         super.onStateReplaced(state, world, pos, newState, moved);
