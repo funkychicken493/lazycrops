@@ -1,0 +1,1 @@
+Fixes loot tables, you should now be able to find crops in temple chests (theoretically)
