@@ -10,8 +10,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LootTableEntry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -24,6 +26,8 @@ import org.slf4j.LoggerFactory;
 import xyz.funky493.lazycrops.cropblocks.CoreItems;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
+
+import java.util.Set;
 
 public class LazyCrops implements ModInitializer {
 	public static final String MODID = "lazycrops";
@@ -71,14 +75,18 @@ public class LazyCrops implements ModInitializer {
 		LOGGER.info("Registered crop blocks and seeds.");
 
 		LOGGER.info("Modifying loot tables...");
+		Set<Identifier> chestTables = Set.of(
+				LootTables.ABANDONED_MINESHAFT_CHEST,
+				LootTables.DESERT_PYRAMID_CHEST,
+				LootTables.JUNGLE_TEMPLE_CHEST
+		);
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
-			if (id.getNamespace().equals("minecraft") && (id.getPath().contains("desert_pyramid") || id.getPath().contains("jungle_pyramid"))) {
-				LootPool.Builder pool = new LootPool.Builder()
-						.with(ItemEntry.builder(CoreItems.LAZY_SEEDS)).conditionally(RandomChanceLootCondition.builder(0.3f))
-						.with(ItemEntry.builder(CoreItems.LAZIER_SEEDS)).conditionally(RandomChanceLootCondition.builder(0.05f))
-						.with(ItemEntry.builder(CoreItems.LAZIER_SEEDS)).conditionally(RandomChanceLootCondition.builder(0.01f));
-
-				supplier.pool(pool);
+			Identifier injectId = new Identifier(MODID, "inject/" + id.getPath());
+			if (chestTables.contains(id)) {
+				supplier.pool(LootPool.builder()
+						.with(LootTableEntry.builder(injectId))
+						.build()
+				);
 			}
 		});
 		LOGGER.info("Modified loot tables.");

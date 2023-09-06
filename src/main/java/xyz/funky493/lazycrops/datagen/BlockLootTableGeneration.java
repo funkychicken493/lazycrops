@@ -8,9 +8,9 @@ import net.minecraft.predicate.StatePredicate;
 import xyz.funky493.lazycrops.LazyCrops;
 import xyz.funky493.lazycrops.cropblocks.*;
 
-public class LootTableGeneration extends FabricBlockLootTableProvider {
+public class BlockLootTableGeneration extends FabricBlockLootTableProvider {
 
-    protected LootTableGeneration(FabricDataOutput dataOutput) {
+    protected BlockLootTableGeneration(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
 
@@ -27,6 +27,7 @@ public class LootTableGeneration extends FabricBlockLootTableProvider {
             }
             LazyCrops.LOGGER.info("- Added loot table for " + crop.cropId + ".");
         }
+
         LazyCrops.LOGGER.info("Generated loot tables.");
     }
 }
