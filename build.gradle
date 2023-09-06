@@ -2,6 +2,7 @@ plugins {
 	id 'fabric-loom' version '1.3-SNAPSHOT'
 	id 'maven-publish'
 	id "com.modrinth.minotaur" version "2.+"
+	id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 import com.modrinth.minotaur.dependencies.ModDependency
@@ -26,6 +27,24 @@ modrinth {
 	dependencies = [
 			new ModDependency('P7dR8mSH', 'required') //Fabric API
 	]
+}
+
+curseforge {
+	apiKey = props.getProperty("curseforge.token")
+	project {
+		id = '908973'
+		changelog = file("CHANGELOG.md").text
+		changelogType = 'markdown'
+		releaseType = 'beta'
+		addGameVersion project.minecraft_version
+
+		mainArtifact(jar) {
+			displayName = "Lazy Crops $project.version"
+			relations {
+				requiredDependency 'fabric-api'
+			}
+		}
+	}
 }
 
 base {
