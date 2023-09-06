@@ -6,30 +6,27 @@ plugins {
 
 import com.modrinth.minotaur.dependencies.ModDependency
 
+// Secrets file filled with tokens
 def props = new Properties()
 file("local.properties").withInputStream { props.load(it) }
 
+version = project.mod_version
+group = project.maven_group
+
 modrinth {
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	token = props.getProperty("modrinth.token")
-	projectId = "" // Enter your Modrinth project ID here.
-	System.out.println("Enter the version number:");
-	versionNumber = br.readLine();
-	System.out.println("Enter the version name:");
-	versionName = br.readLine();
+	projectId = "t4nq7UQy"
+	versionNumber = version
+	versionName = "Lazy Crops ${version}"
+	versionType = "beta"
 	uploadFile = remapJar
-	System.out.println("Enter the game version number: (See minotaur docs for valids)");
-	gameVersions = [br.readLine()];
-	System.out.println("Enter changelog:");
-	changelog = br.readLine();
+	gameVersions = [project.minecraft_version];
+	changelog = file("CHANGELOG.md").text
 	loaders = ["fabric"]
 	dependencies = [
 			new ModDependency('P7dR8mSH', 'required') //Fabric API
 	]
 }
-
-version = project.mod_version
-group = project.maven_group
 
 base {
 	archivesName = project.archives_base_name
@@ -143,10 +140,6 @@ sourceSets {
 			]
 		}
 	}
-}
-
-task publishToModSites {
-	publishToModSites.dependsOn modrinth
 }
 
 task runAssetgenClient(type:Exec) {
