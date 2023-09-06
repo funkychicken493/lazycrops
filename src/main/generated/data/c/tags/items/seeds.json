@@ -27,6 +27,9 @@
     "lazycrops:pig_seeds",
     "lazycrops:chicken_seeds",
     "lazycrops:experience_seeds",
-    "lazycrops:tnt_seeds"
+    "lazycrops:tnt_seeds",
+    "lazycrops:iron_seeds",
+    "lazycrops:gold_seeds",
+    "lazycrops:copper_seeds"
   ]
 }
