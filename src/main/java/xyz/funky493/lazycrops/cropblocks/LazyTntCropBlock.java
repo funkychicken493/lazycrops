@@ -13,7 +13,7 @@ public class LazyTntCropBlock extends LazyItemCropBlock {
 
 
     public LazyTntCropBlock(String cropId, String seedsId, int level) {
-        super(cropId, seedsId, Items.TNT, level);
+        super(cropId, seedsId, Items.TNT, level, true);
     }
 
     @SuppressWarnings("deprecation")

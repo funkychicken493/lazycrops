@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 public class LazyExperienceCropBlock extends LazyItemCropBlock {
     public LazyExperienceCropBlock(String cropId, String seedsId, int level) {
-        super(cropId, seedsId, Items.EXPERIENCE_BOTTLE, level);
+        super(cropId, seedsId, Items.EXPERIENCE_BOTTLE, level, true);
     }
 
     @SuppressWarnings("deprecation")
