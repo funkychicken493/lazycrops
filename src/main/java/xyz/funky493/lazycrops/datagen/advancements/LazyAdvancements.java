@@ -5,7 +5,7 @@ import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import xyz.funky493.lazycrops.cropblocks.CoreItems;
+import xyz.funky493.lazycrops.cropblocks.LazyCoreItems;
 
 import java.util.function.Consumer;
 
@@ -16,7 +16,7 @@ public class LazyAdvancements implements Consumer<Consumer<Advancement>>{
     public void accept(Consumer<Advancement> advancementConsumer) {
         Advancement root = Advancement.Builder.create()
                 .display(
-                        CoreItems.LAZY_SEEDS,
+                        LazyCoreItems.LAZY_SEEDS,
                         Text.translatable("advancements.lazycrops.root.title"),
                         Text.translatable("advancements.lazycrops.root.description"),
                         new Identifier("textures/gui/advancements/backgrounds/adventure.png"),
@@ -25,12 +25,12 @@ public class LazyAdvancements implements Consumer<Consumer<Advancement>>{
                         true,
                         false
                 )
-                .criterion("obtain_lazy_seeds", InventoryChangedCriterion.Conditions.items(CoreItems.LAZY_SEEDS))
+                .criterion("obtain_lazy_seeds", InventoryChangedCriterion.Conditions.items(LazyCoreItems.LAZY_SEEDS))
                 .build(advancementConsumer, MODID + "/root");
         Advancement lazier_seeds = Advancement.Builder.create()
                 .parent(root)
                 .display(
-                        CoreItems.LAZIER_SEEDS,
+                        LazyCoreItems.LAZIER_SEEDS,
                         Text.translatable("advancements.lazycrops.lazier_seeds.title"),
                         Text.translatable("advancements.lazycrops.lazier_seeds.description"),
                         null,
@@ -39,12 +39,12 @@ public class LazyAdvancements implements Consumer<Consumer<Advancement>>{
                         true,
                         false
                 )
-                .criterion("obtain_lazier_seeds", InventoryChangedCriterion.Conditions.items(CoreItems.LAZIER_SEEDS))
+                .criterion("obtain_lazier_seeds", InventoryChangedCriterion.Conditions.items(LazyCoreItems.LAZIER_SEEDS))
                 .build(advancementConsumer, MODID + "/lazier_seeds");
         Advancement laziest_seeds = Advancement.Builder.create()
                 .parent(lazier_seeds)
                 .display(
-                        CoreItems.LAZIEST_SEEDS,
+                        LazyCoreItems.LAZIEST_SEEDS,
                         Text.translatable("advancements.lazycrops.laziest_seeds.title"),
                         Text.translatable("advancements.lazycrops.laziest_seeds.description"),
                         null,
@@ -53,7 +53,7 @@ public class LazyAdvancements implements Consumer<Consumer<Advancement>>{
                         true,
                         false
                 )
-                .criterion("obtain_laziest_seeds", InventoryChangedCriterion.Conditions.items(CoreItems.LAZIEST_SEEDS))
+                .criterion("obtain_laziest_seeds", InventoryChangedCriterion.Conditions.items(LazyCoreItems.LAZIEST_SEEDS))
                 .build(advancementConsumer, MODID + "/laziest_seeds");
     }
 }

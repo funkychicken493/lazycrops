@@ -12,6 +12,10 @@ public class LazySpecialCropBlock extends LazyItemCropBlock {
         super(cropId, seedsId, product, level, true);
     }
 
+    public LazySpecialCropBlock(String id, Item product, int level) {
+        super(id, product, level, true);
+    }
+
     @SuppressWarnings("deprecation")
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {

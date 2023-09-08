@@ -7,7 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import xyz.funky493.lazycrops.cropblocks.CoreItems;
+import xyz.funky493.lazycrops.cropblocks.LazyCoreItems;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
 
@@ -25,7 +25,7 @@ public class TagGeneration extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(ezCKey("seeds")).add(CoreItems.LAZY_SEEDS).add(CoreItems.LAZIER_SEEDS).add(CoreItems.LAZIEST_SEEDS).setReplace(false);
+        getOrCreateTagBuilder(ezCKey("seeds")).add(LazyCoreItems.LAZY_SEEDS).add(LazyCoreItems.LAZIER_SEEDS).add(LazyCoreItems.LAZIEST_SEEDS).setReplace(false);
         for (LazyCropBlock cropBlock : LazyCropBlocks.CROP_BLOCKS) {
             getOrCreateTagBuilder(ezCKey("seeds")).add(cropBlock.seedsItem).setReplace(false);
             getOrCreateTagBuilder(ezCKey("seeds/" + cropBlock.cropId.split("_")[0])).add(cropBlock.seedsItem).setReplace(false);

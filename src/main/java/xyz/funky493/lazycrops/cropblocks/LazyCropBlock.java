@@ -43,6 +43,10 @@ public class LazyCropBlock extends CropBlock {
         this.level = level;
     }
 
+    public LazyCropBlock(String id, int level) {
+        this(id + "_crop", id + "_seeds", level);
+    }
+
     public ItemConvertible getSeedsItem() {
         return seedsItem;
     }

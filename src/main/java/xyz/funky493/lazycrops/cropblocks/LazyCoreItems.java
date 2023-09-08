@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CoreItems {
+public class LazyCoreItems {
     public static final Item LAZY_SEEDS = new Item(new Item.Settings());
     public static final Item LAZIER_SEEDS = new Item(new Item.Settings());
     public static final Item LAZIEST_SEEDS = new Item(new Item.Settings());

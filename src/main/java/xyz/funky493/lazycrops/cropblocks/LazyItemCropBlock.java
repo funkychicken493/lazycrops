@@ -15,4 +15,14 @@ public class LazyItemCropBlock extends LazyCropBlock {
         this(cropId, seedsId, product, level);
         this.noDrop = noDrop;
     }
+
+    public LazyItemCropBlock(String id, Item product, int level, boolean noDrop) {
+        super(id, level);
+        this.product = product;
+        this.noDrop = noDrop;
+    }
+
+    public LazyItemCropBlock(String id, Item product, int level) {
+        this(id, product, level, false);
+    }
 }

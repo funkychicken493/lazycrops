@@ -11,6 +11,10 @@ public class LazyExperienceCropBlock extends LazySpecialCropBlock {
         super(cropId, seedsId, Items.EXPERIENCE_BOTTLE, level);
     }
 
+    public LazyExperienceCropBlock(String id, int level) {
+        super(id, Items.EXPERIENCE_BOTTLE, level);
+    }
+
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         super.onStateReplaced(state, world, pos, newState, moved);

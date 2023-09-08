@@ -14,6 +14,10 @@ public class LazyTntCropBlock extends LazySpecialCropBlock {
         super(cropId, seedsId, Items.TNT, level);
     }
 
+    public LazyTntCropBlock(String id, int level) {
+        super(id, Items.TNT, level);
+    }
+
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         super.onStateReplaced(state, world, pos, newState, moved);

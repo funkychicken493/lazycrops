@@ -57,16 +57,16 @@ public class RecipeGeneration extends FabricRecipeProvider {
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         for (LazyCropBlock cropBlock : LazyCropBlocks.CROP_BLOCKS) {
             if (cropBlock instanceof LazyItemCropBlock) {
-                donut(exporter, CoreItems.getItemFromCropLevel(cropBlock.getLevel()), ((LazyItemCropBlock) cropBlock).product, cropBlock.seedsItem, new Identifier("lazycrops", cropBlock.seedsId + "_from_donut"));
+                donut(exporter, LazyCoreItems.getItemFromCropLevel(cropBlock.getLevel()), ((LazyItemCropBlock) cropBlock).product, cropBlock.seedsItem, new Identifier("lazycrops", cropBlock.seedsId + "_from_donut"));
                 inputOutput(exporter, cropBlock.seedsItem, ((LazyItemCropBlock) cropBlock).product, new Identifier("lazycrops", cropBlock.seedsId + "_from_input_output"));
             } else if (cropBlock instanceof LazyEntityCropBlock) {
-                donut(exporter, CoreItems.getItemFromCropLevel(cropBlock.getLevel()), ((LazyEntityCropBlock) cropBlock).craftItem, cropBlock.seedsItem, new Identifier("lazycrops", cropBlock.seedsId + "_from_donut"));
+                donut(exporter, LazyCoreItems.getItemFromCropLevel(cropBlock.getLevel()), ((LazyEntityCropBlock) cropBlock).craftItem, cropBlock.seedsItem, new Identifier("lazycrops", cropBlock.seedsId + "_from_donut"));
                 inputOutput(exporter, cropBlock.seedsItem, ((LazyEntityCropBlock) cropBlock).craftItem, new Identifier("lazycrops", cropBlock.seedsId + "_from_input_output"));
             }
         }
-        threeByThree(exporter, CoreItems.LAZY_SEEDS, CoreItems.LAZIER_SEEDS, new Identifier("lazycrops", "lazier_seeds_from_three_by_three"));
-        reverseThreeByThree(exporter, CoreItems.LAZIER_SEEDS, CoreItems.LAZY_SEEDS, new Identifier("lazycrops", "lazy_seeds_from_lazier_seeds"));
-        threeByThree(exporter, CoreItems.LAZIER_SEEDS, CoreItems.LAZIEST_SEEDS, new Identifier("lazycrops", "laziest_seeds_from_three_by_three"));
-        reverseThreeByThree(exporter, CoreItems.LAZIEST_SEEDS, CoreItems.LAZIER_SEEDS, new Identifier("lazycrops", "lazier_seeds_from_laziest_seeds"));
+        threeByThree(exporter, LazyCoreItems.LAZY_SEEDS, LazyCoreItems.LAZIER_SEEDS, new Identifier("lazycrops", "lazier_seeds_from_three_by_three"));
+        reverseThreeByThree(exporter, LazyCoreItems.LAZIER_SEEDS, LazyCoreItems.LAZY_SEEDS, new Identifier("lazycrops", "lazy_seeds_from_lazier_seeds"));
+        threeByThree(exporter, LazyCoreItems.LAZIER_SEEDS, LazyCoreItems.LAZIEST_SEEDS, new Identifier("lazycrops", "laziest_seeds_from_three_by_three"));
+        reverseThreeByThree(exporter, LazyCoreItems.LAZIEST_SEEDS, LazyCoreItems.LAZIER_SEEDS, new Identifier("lazycrops", "lazier_seeds_from_laziest_seeds"));
     }
 }

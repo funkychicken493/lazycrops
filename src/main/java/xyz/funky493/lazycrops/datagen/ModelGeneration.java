@@ -6,7 +6,7 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import xyz.funky493.lazycrops.LazyCrops;
-import xyz.funky493.lazycrops.cropblocks.CoreItems;
+import xyz.funky493.lazycrops.cropblocks.LazyCoreItems;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
 
@@ -28,9 +28,9 @@ public class ModelGeneration extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         LazyCrops.LOGGER.info("Generating item models...");
-        itemModelGenerator.register(CoreItems.LAZY_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(CoreItems.LAZIER_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(CoreItems.LAZIEST_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(LazyCoreItems.LAZY_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(LazyCoreItems.LAZIER_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(LazyCoreItems.LAZIEST_SEEDS, Models.GENERATED);
         LazyCrops.LOGGER.info("Generated item models.");
     }
 }

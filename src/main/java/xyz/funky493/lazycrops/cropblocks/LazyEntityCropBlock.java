@@ -19,6 +19,12 @@ public class LazyEntityCropBlock extends LazyCropBlock {
         this.craftItem = craftItem;
     }
 
+    public LazyEntityCropBlock(String id, int level, EntityType<?> product, Item craftItem) {
+        super(id, level);
+        this.product = product;
+        this.craftItem = craftItem;
+    }
+
     public void summonEntity(ServerWorld world, BlockPos pos, BlockState state) {
         if (!world.isClient() && state.get(this.getAgeProperty()) == 7) {
             product.spawn(world, pos, SpawnReason.CONVERSION);

@@ -11,8 +11,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
-import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootTableEntry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -23,7 +21,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xyz.funky493.lazycrops.cropblocks.CoreItems;
+import xyz.funky493.lazycrops.cropblocks.LazyCoreItems;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
 
@@ -45,21 +43,21 @@ public class LazyCrops implements ModInitializer {
 
 		Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder()
 				.displayName(Text.translatable("itemGroup." + MODID + ".main_group"))
-				.icon(() -> new ItemStack(CoreItems.LAZY_SEEDS))
+				.icon(() -> new ItemStack(LazyCoreItems.LAZY_SEEDS))
 				.build()
 		);
 
 		LOGGER.info("Registering core items...");
-		for (int i = 0; i < CoreItems.ITEMS.size(); i++) {
-			Item item = CoreItems.ITEMS.keySet().toArray(new Item[0])[i];
-			String itemId = CoreItems.ITEMS.values().toArray(new String[0])[i];
+		for (int i = 0; i < LazyCoreItems.ITEMS.size(); i++) {
+			Item item = LazyCoreItems.ITEMS.keySet().toArray(new Item[0])[i];
+			String itemId = LazyCoreItems.ITEMS.values().toArray(new String[0])[i];
 			Registry.register(Registries.ITEM, new Identifier(MODID, itemId), item);
 			LOGGER.info("- Registered " + itemId + ".");
 		}
 		ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
-			content.add(CoreItems.LAZY_SEEDS);
-			content.add(CoreItems.LAZIER_SEEDS);
-			content.add(CoreItems.LAZIEST_SEEDS);
+			content.add(LazyCoreItems.LAZY_SEEDS);
+			content.add(LazyCoreItems.LAZIER_SEEDS);
+			content.add(LazyCoreItems.LAZIEST_SEEDS);
 		});
 		LOGGER.info("Registered core items.");
 
