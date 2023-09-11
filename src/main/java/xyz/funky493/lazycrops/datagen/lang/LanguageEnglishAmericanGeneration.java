@@ -3,6 +3,7 @@ package xyz.funky493.lazycrops.datagen.lang;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import xyz.funky493.lazycrops.LazyCrops;
+import xyz.funky493.lazycrops.blocks.LazyBlocks;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
 
@@ -59,11 +60,13 @@ public class LanguageEnglishAmericanGeneration extends FabricLanguageProvider {
 
         translationBuilder.add(LazyCrops.ITEM_GROUP, "Lazy Crops");
 
-        //#region Core items
+        //#region Core items and other blocks
 
         translationBuilder.add("item." + MODID + ".lazy_seeds", "Lazy Seeds");
         translationBuilder.add("item." + MODID + ".lazier_seeds", "Lazier Seeds");
         translationBuilder.add("item." + MODID + ".laziest_seeds", "Laziest Seeds");
+        translationBuilder.add("block." + MODID + ".invincible_farmland", "Invincible Farmland");
+        translationBuilder.add("item." + MODID + ".invincible_farmland", "Invincible Farmland");
 
         //#endregion
 

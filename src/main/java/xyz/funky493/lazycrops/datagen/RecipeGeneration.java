@@ -2,12 +2,14 @@ package xyz.funky493.lazycrops.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
+import xyz.funky493.lazycrops.blocks.LazyBlocks;
 import xyz.funky493.lazycrops.cropblocks.*;
 
 import java.util.function.Consumer;
@@ -68,5 +70,7 @@ public class RecipeGeneration extends FabricRecipeProvider {
         reverseThreeByThree(exporter, LazyCoreItems.LAZIER_SEEDS, LazyCoreItems.LAZY_SEEDS, new Identifier("lazycrops", "lazy_seeds_from_lazier_seeds"));
         threeByThree(exporter, LazyCoreItems.LAZIER_SEEDS, LazyCoreItems.LAZIEST_SEEDS, new Identifier("lazycrops", "laziest_seeds_from_three_by_three"));
         reverseThreeByThree(exporter, LazyCoreItems.LAZIEST_SEEDS, LazyCoreItems.LAZIER_SEEDS, new Identifier("lazycrops", "lazier_seeds_from_laziest_seeds"));
+
+        threeByThree(exporter, Blocks.FARMLAND.asItem(), LazyBlocks.INVINCIBLE_FARMLAND_ITEM, new Identifier("lazycrops", "invincible_farmland_from_three_by_three"));
     }
 }

@@ -6,6 +6,8 @@ import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -21,6 +23,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import xyz.funky493.lazycrops.blocks.InvincibleFarmland;
+import xyz.funky493.lazycrops.blocks.LazyBlocks;
 import xyz.funky493.lazycrops.cropblocks.LazyCoreItems;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlock;
 import xyz.funky493.lazycrops.cropblocks.LazyCropBlocks;
@@ -46,6 +50,14 @@ public class LazyCrops implements ModInitializer {
 				.icon(() -> new ItemStack(LazyCoreItems.LAZY_SEEDS))
 				.build()
 		);
+
+		LOGGER.info("Registering other blocks...");
+		Registry.register(Registries.BLOCK, new Identifier(MODID, "invincible_farmland"), LazyBlocks.INVINCIBLE_FARMLAND);
+		Registry.register(Registries.ITEM, new Identifier(MODID, "invincible_farmland"), LazyBlocks.INVINCIBLE_FARMLAND_ITEM);
+		ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
+			content.add(LazyBlocks.INVINCIBLE_FARMLAND_ITEM);
+		});
+		LOGGER.info("Registered other blocks.");
 
 		LOGGER.info("Registering core items...");
 		for (int i = 0; i < LazyCoreItems.ITEMS.size(); i++) {
